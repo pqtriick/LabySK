@@ -1,3 +1,5 @@
+<img src = https://i.imgur.com/6r6rHUF.png>
+
 # LabySK
 
 LabySk is a SkriptAddon which allows you to use the LabyMod Server API with simple Skript Syntax.
