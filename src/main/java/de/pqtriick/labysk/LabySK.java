@@ -2,7 +2,10 @@ package de.pqtriick.labysk;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
+import de.pqtriick.labysk.elements.conditions.CheckLabyPlayer;
+import de.pqtriick.labysk.laby.CheckForLaby;
 import de.pqtriick.labysk.laby.Protocol;
+import de.pqtriick.labysk.util.Metrics;
 import de.pqtriick.labysk.util.update.VersionCheck;
 import de.pqtriick.labysk.util.update.VersionInform;
 import io.netty.buffer.ByteBuf;
@@ -11,6 +14,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
@@ -25,6 +29,7 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
     public static boolean hasUpdate;
     private static LabySK labySK;
     private static SkriptAddon addon;
+    private static final int id = 21800;
 
     @Override
     public void onEnable() {
@@ -33,7 +38,7 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
         checkUpdate();
         getServer().getMessenger().registerIncomingPluginChannel(this, "labymod3:main", this);
         getServer().getMessenger().registerOutgoingPluginChannel(this, "labymod3:main");
-
+        Metrics metrics = new Metrics(this, id);
         Bukkit.getPluginManager().registerEvents(new VersionInform(), this);
 
         try {
@@ -62,7 +67,7 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
     @Override
     public void onPluginMessageReceived(@NotNull String channel, @NotNull Player player, @NotNull byte[] message) {
         if (!channel.equals("labymod3:main")) {
-            return;
+
         }
 
         DataInputStream in = new DataInputStream(new ByteArrayInputStream(message));
@@ -73,7 +78,9 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
 
         // LabyMod user joins the server
         if(key.equals("INFO")) {
-            // Handle the json message
+            if (!CheckForLaby.labyPlayers.contains(player)) {
+                CheckForLaby.labyPlayers.add(player);
+            }
         }
 
     }
