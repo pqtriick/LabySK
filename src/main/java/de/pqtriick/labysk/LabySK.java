@@ -3,8 +3,13 @@ package de.pqtriick.labysk;
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import de.pqtriick.labysk.laby.Protocol;
+import de.pqtriick.labysk.util.update.VersionCheck;
+import de.pqtriick.labysk.util.update.VersionInform;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,6 +21,8 @@ import java.io.DataInputStream;
 
 public final class LabySK extends JavaPlugin implements PluginMessageListener {
 
+    public static final Component PREFIX = MiniMessage.miniMessage().deserialize("<gradient:#FCD05C:#E43A96>LabySK");
+    public static boolean hasUpdate;
     private static LabySK labySK;
     private static SkriptAddon addon;
 
@@ -23,8 +30,11 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
     public void onEnable() {
         labySK = this;
         addon = Skript.registerAddon(this);
+        checkUpdate();
         getServer().getMessenger().registerIncomingPluginChannel(this, "labymod3:main", this);
         getServer().getMessenger().registerOutgoingPluginChannel(this, "labymod3:main");
+
+        Bukkit.getPluginManager().registerEvents(new VersionInform(), this);
 
         try {
             addon.loadClasses("de.pqtriick.labysk", "elements");
@@ -66,5 +76,15 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
             // Handle the json message
         }
 
+    }
+    public boolean checkUpdate() {
+        new VersionCheck(this, 116590).getVersion(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                hasUpdate = false;
+            } else {
+                hasUpdate = true;
+            }
+        });
+        return hasUpdate;
     }
 }

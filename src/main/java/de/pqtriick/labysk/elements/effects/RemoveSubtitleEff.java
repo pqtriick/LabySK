@@ -26,7 +26,6 @@ public class RemoveSubtitleEff extends Effect {
         Skript.registerEffect(RemoveSubtitleEff.class, "remove subtitle of %player%");
     }
 
-
     @Override
     protected void execute(Event event) {
         Player p = player.getSingle(event);
