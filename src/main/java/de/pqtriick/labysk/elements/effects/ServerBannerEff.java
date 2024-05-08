@@ -13,6 +13,7 @@ import de.pqtriick.labysk.laby.ServerBanner;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
 import javax.annotation.Nullable;
@@ -35,12 +36,11 @@ public class ServerBannerEff extends Effect {
     protected void execute(Event event) {
         Player p = player.getSingle(event);
         String link = imageLink.getSingle(event);
-        Bukkit.getScheduler().runTaskLaterAsynchronously(LabySK.getLabySK(), new Consumer<BukkitTask>() { //Need delay to send packets
-            @Override
-            public void accept(BukkitTask bukkitTask) {
+        Bukkit.getScheduler().runTaskLaterAsynchronously(LabySK.getLabySK(), new BukkitRunnable() { //Need delay to send packets
+            public void run() {
                 ServerBanner.sendBanner(p, link);
             }
-        }, 20);
+        }, 20L);
     }
 
     @Override

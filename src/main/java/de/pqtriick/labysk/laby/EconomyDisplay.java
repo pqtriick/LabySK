@@ -17,7 +17,7 @@ public class EconomyDisplay {
         bankObj.addProperty("balance", bank);
         object.add("cash", cashObj);
         object.add("bank", bankObj);
-        player.sendPluginMessage(LabySK.getLabySK(), "labymod3:main", Protocol.getBytesToSend("economy", object.toString()));
+        Protocol.sendLabyModMessage(player, "economy", object);
 
     }
 }

@@ -18,9 +18,6 @@ public class Subtitle {
             subtitle.addProperty("value", text);
         }
         array.add(subtitle);
-        reciever.sendPluginMessage(LabySK.getLabySK(), "labymod3:main", Protocol.getBytesToSend("account_subtitle", array.toString()));
-
-
-
+        Protocol.sendLabyModMessage(reciever, "account_subtitle", array);
     }
 }

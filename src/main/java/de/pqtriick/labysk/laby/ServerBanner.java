@@ -9,6 +9,6 @@ public class ServerBanner {
     public static void sendBanner(Player player, String banner) {
         JsonObject object = new JsonObject();
         object.addProperty("url", banner);
-        player.sendPluginMessage(LabySK.getLabySK(), "labymod3:main", Protocol.getBytesToSend("server_banner", object.toString()));
+        Protocol.sendLabyModMessage(player, "server_banner", object);
     }
 }

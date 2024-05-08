@@ -11,6 +11,6 @@ public class SendToServer {
         object.addProperty("title", title);
         object.addProperty("address", address);
         object.addProperty("preview", preview);
-        player.sendPluginMessage(LabySK.getLabySK(), "labymod3:main", Protocol.getBytesToSend("server_switch", object.toString()));
+        Protocol.sendLabyModMessage(player, "server_switch", object);
     }
 }

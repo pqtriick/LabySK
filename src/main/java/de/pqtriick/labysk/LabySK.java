@@ -2,7 +2,6 @@ package de.pqtriick.labysk;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
-import de.pqtriick.labysk.elements.conditions.CheckLabyPlayer;
 import de.pqtriick.labysk.laby.CheckForLaby;
 import de.pqtriick.labysk.laby.Protocol;
 import de.pqtriick.labysk.util.Metrics;
@@ -10,11 +9,7 @@ import de.pqtriick.labysk.util.update.VersionCheck;
 import de.pqtriick.labysk.util.update.VersionInform;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextDecoration;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
@@ -25,19 +20,26 @@ import java.io.DataInputStream;
 
 public final class LabySK extends JavaPlugin implements PluginMessageListener {
 
-    public static final Component PREFIX = MiniMessage.miniMessage().deserialize("<gradient:#FCD05C:#E43A96>LabySK");
+    public static final String PREFIX = "§cLabySK";
     public static boolean hasUpdate;
     private static LabySK labySK;
     private static SkriptAddon addon;
     private static final int id = 21800;
 
     @Override
+    public void onLoad() {
+        try {
+            labySK = this;
+            addon = Skript.registerAddon(this);
+        } catch (Exception exe) {
+            Bukkit.getLogger().info("Could not find Skript in Plugins folder!");
+        }
+
+    }
+
+    @Override
     public void onEnable() {
-        labySK = this;
-        addon = Skript.registerAddon(this);
         checkUpdate();
-        getServer().getMessenger().registerIncomingPluginChannel(this, "labymod3:main", this);
-        getServer().getMessenger().registerOutgoingPluginChannel(this, "labymod3:main");
         Metrics metrics = new Metrics(this, id);
         Bukkit.getPluginManager().registerEvents(new VersionInform(), this);
 

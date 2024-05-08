@@ -15,7 +15,7 @@ public class AddonRecommendation {
         addon.addProperty("required", required);
         array.add(addon);
         object.add("addons", array);
-        player.sendPluginMessage(LabySK.getLabySK(), "labymod3:main", Protocol.getBytesToSend("addon_recommendation", object.toString()));
+        Protocol.sendLabyModMessage(player, "addon_recommendation", object);
 
     }
 }

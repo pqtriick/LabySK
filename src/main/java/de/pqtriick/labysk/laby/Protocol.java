@@ -5,14 +5,33 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.DecoderException;
 import io.netty.handler.codec.EncoderException;
+import net.minecraft.server.v1_8_R3.PacketDataSerializer;
+import net.minecraft.server.v1_8_R3.PacketPlayOutCustomPayload;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.entity.Player;
 
 import java.nio.charset.Charset;
-import java.util.UUID;
 public class Protocol {
 
+    public static void sendLabyModMessage(Player player, String key, JsonElement messageContent ) {
+        byte[] bytes = getBytesToSend( key, messageContent.toString() );
+
+        PacketDataSerializer pds = new PacketDataSerializer( Unpooled.wrappedBuffer( bytes ) );
+        PacketPlayOutCustomPayload payloadPacket = new PacketPlayOutCustomPayload( "labymod3:main", pds );
+        ((CraftPlayer) player).getHandle().playerConnection.sendPacket( payloadPacket );
+    }
+
+    /**
+     * Gets the bytes that are required to send the given message
+     *
+     * @param messageKey      the message's key
+     * @param messageContents the message's contents
+     * @return the byte array that should be the payload
+     */
     public static byte[] getBytesToSend( String messageKey, String messageContents ) {
         // Getting an empty buffer
         ByteBuf byteBuf = Unpooled.buffer();
+
         // Writing the message-key to the buffer
         writeString( byteBuf, messageKey );
 
@@ -112,3 +131,4 @@ public class Protocol {
     }
 
 }
+

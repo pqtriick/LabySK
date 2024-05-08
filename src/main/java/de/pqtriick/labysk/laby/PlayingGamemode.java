@@ -10,6 +10,6 @@ public class PlayingGamemode {
         JsonObject object = new JsonObject();
         object.addProperty("show_gamemode", visible);
         object.addProperty("gamemode_name", text);
-        player.sendPluginMessage(LabySK.getLabySK(), "labymod3:main", Protocol.getBytesToSend("server_gamemode", object.toString()));
+        Protocol.sendLabyModMessage(player, "server_gamemode", object);
     }
 }
