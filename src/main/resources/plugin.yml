@@ -2,5 +2,4 @@ name: LabySK
 version: '${version}'
 main: de.pqtriick.labysk.LabySK
 api-version: '1.8'
-depend:
-  - Skript
+depend: [Skript, Citizens]

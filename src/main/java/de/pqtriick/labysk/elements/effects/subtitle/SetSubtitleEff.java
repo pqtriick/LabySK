@@ -25,9 +25,10 @@ public class SetSubtitleEff extends Effect {
     private Expression<Player> player;
     private Expression<String> text;
     private Expression<Double> size;
+    private Expression<Player> target;
 
     static {
-        Skript.registerEffect(SetSubtitleEff.class, "set the subtitle of %player% to %string% with size %double%");
+        Skript.registerEffect(SetSubtitleEff.class, "set the subtitle of %player% to %string% with size %double% for %player%");
     }
 
     @Override
@@ -35,9 +36,8 @@ public class SetSubtitleEff extends Effect {
         Player p = player.getSingle(event);
         String subtitle = text.getSingle(event);
         Double s = size.getSingle(event);
-        for (Player all : Bukkit.getOnlinePlayers()) {
-            Subtitle.sendSubtitle(all, p.getUniqueId(), subtitle, s);
-        }
+        Player t = target.getSingle(event);
+        Subtitle.sendSubtitle(t, p.getUniqueId(), subtitle, s);
     }
 
     @Override
@@ -50,6 +50,7 @@ public class SetSubtitleEff extends Effect {
         player = (Expression<Player>) expressions[0];
         text = (Expression<String>) expressions[1];
         size = (Expression<Double>) expressions[2];
+        target = (Expression<Player>) expressions[3];
         return true;
     }
 }
