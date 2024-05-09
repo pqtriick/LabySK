@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"
+    implementation fileTree(dir: 'libs', include: '*.jar')
     implementation 'com.github.azbh111:craftbukkit-1.8.8:R'
     implementation 'com.github.SkriptLang:Skript:2.8.5'
     implementation 'io.netty:netty-all:4.1.100.Final'

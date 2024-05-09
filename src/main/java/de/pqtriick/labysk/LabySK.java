@@ -27,28 +27,19 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
     private static final int id = 21800;
 
     @Override
-    public void onLoad() {
-        try {
-            labySK = this;
-            addon = Skript.registerAddon(this);
-        } catch (Exception exe) {
-            Bukkit.getLogger().info("Could not find Skript in Plugins folder!");
-        }
-
-    }
-
-    @Override
     public void onEnable() {
+        labySK = this;
+        addon = Skript.registerAddon(this);
         checkUpdate();
         Metrics metrics = new Metrics(this, id);
         Bukkit.getPluginManager().registerEvents(new VersionInform(), this);
 
         try {
             addon.loadClasses("de.pqtriick.labysk", "elements");
+            Bukkit.getLogger().info("[LabySK] LabySK Loaded successfully");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Bukkit.getLogger().info("[LabySK] LabySK Loaded successfully");
 
     }
 
