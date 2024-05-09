@@ -9,6 +9,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
+import de.pqtriick.labysk.LabySK;
 import de.pqtriick.labysk.laby.CheckForLaby;
 import de.pqtriick.labysk.laby.Subtitle;
 import org.bukkit.Bukkit;
@@ -25,9 +26,10 @@ public class SetSubtitleEff extends Effect {
     private Expression<Player> player;
     private Expression<String> text;
     private Expression<Double> size;
+    private Expression<Player> reciever;
 
     static {
-        Skript.registerEffect(SetSubtitleEff.class, "set the subtitle of %player% to %string% with size %double%");
+        Skript.registerEffect(SetSubtitleEff.class, "set the subtitle of %player% to %string% with size %double% for %player%");
     }
 
     @Override
@@ -35,9 +37,8 @@ public class SetSubtitleEff extends Effect {
         Player p = player.getSingle(event);
         String subtitle = text.getSingle(event);
         Double s = size.getSingle(event);
-        for (Player all : Bukkit.getOnlinePlayers()) {
-            Subtitle.sendSubtitle(all, p.getUniqueId(), subtitle, s);
-        }
+        Player r = reciever.getSingle(event);
+        Subtitle.sendSubtitle(r, p.getUniqueId(), subtitle, s);
     }
 
     @Override
@@ -50,6 +51,7 @@ public class SetSubtitleEff extends Effect {
         player = (Expression<Player>) expressions[0];
         text = (Expression<String>) expressions[1];
         size = (Expression<Double>) expressions[2];
+        reciever = (Expression<Player>) expressions[3];
         return true;
     }
 }

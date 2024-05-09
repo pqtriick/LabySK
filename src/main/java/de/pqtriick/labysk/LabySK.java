@@ -2,7 +2,6 @@ package de.pqtriick.labysk;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
-import de.pqtriick.labysk.elements.conditions.CheckLabyPlayer;
 import de.pqtriick.labysk.laby.CheckForLaby;
 import de.pqtriick.labysk.laby.Protocol;
 import de.pqtriick.labysk.util.Metrics;
@@ -11,10 +10,8 @@ import de.pqtriick.labysk.util.update.VersionInform;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
@@ -69,6 +66,7 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
         if (!channel.equals("labymod3:main")) {
 
         }
+
 
         DataInputStream in = new DataInputStream(new ByteArrayInputStream(message));
 
