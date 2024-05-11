@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 
 public class CheckLabyPlayer extends Condition {
 
-    Expression<Player> player;
+    private Expression<Player> player;
 
     static {
         Skript.registerCondition(CheckLabyPlayer.class, "if %player% is using labymod");
@@ -22,7 +22,11 @@ public class CheckLabyPlayer extends Condition {
     @Override
     public boolean check(Event event) {
         Player labyPlayer = player.getSingle(event);
-        return CheckForLaby.check(labyPlayer) == isNegated();
+        if (CheckForLaby.check(labyPlayer)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

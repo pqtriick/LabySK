@@ -46,8 +46,7 @@ public class LabyNPC {
         object.addProperty("uuid", npcUUID.toString());
         object.addProperty("emote_id", emote);
         array.add(object);
-        player.sendPluginMessage(LabySK.getLabySK(), "labymod3:main", Protocol.getBytesToSend("emote_api", array.toString()));
-
+        Protocol.sendLabyModMessage(player, "emote_api", array);
 
     }
 

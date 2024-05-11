@@ -17,21 +17,21 @@ import javax.annotation.Nullable;
 
 @Name("Remove Subtitle of player")
 @Description("Removes the subtitle of the player")
-@Examples({"remove subtitle of player"})
+@Examples({"remove subtitle of player for player"})
 public class RemoveSubtitleEff extends Effect {
 
     private Expression<Player> player;
+    private Expression<Player> target;
 
     static {
-        Skript.registerEffect(RemoveSubtitleEff.class, "remove subtitle of %player%");
+        Skript.registerEffect(RemoveSubtitleEff.class, "remove subtitle of %player% for %player%");
     }
 
     @Override
     protected void execute(Event event) {
         Player p = player.getSingle(event);
-        for (Player all : Bukkit.getOnlinePlayers()) {
-            Subtitle.sendSubtitle(all, p.getUniqueId(), null, 0.8);
-        }
+        Player t = target.getSingle(event);
+        Subtitle.sendSubtitle(t, p.getUniqueId(), null, 0.8);
 
     }
 
@@ -43,6 +43,7 @@ public class RemoveSubtitleEff extends Effect {
     @Override
     public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
         player = (Expression<Player>) expressions[0];
+        target = (Expression<Player>) expressions[1];
         return true;
     }
 }
