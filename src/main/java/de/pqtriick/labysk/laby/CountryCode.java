@@ -45,7 +45,6 @@ public class CountryCode {
             countryCode = countryCode.replace("\"}", "");
             countryCode = countryCode.toLowerCase();
         } catch (Exception e) {}
-        System.out.println("COUNTRY CODE SUCCESS | " + countryCode + " | " + ip);
         return countryCode;
     }
 
