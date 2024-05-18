@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.elements.effects;
+package de.pqtriick.labysk.elements.effects.tablist;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
@@ -14,10 +14,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
 
 import javax.annotation.Nullable;
-import java.util.function.Consumer;
 
 @Name("Set server banner (Link to image)")
 @Description("Sets the Server Banner which is displayed over the tablist")
