@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.elements.effects;
+package de.pqtriick.labysk.elements.effects.tablist;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
@@ -33,8 +33,8 @@ public class ServerBannerEff extends Effect {
 
     @Override
     protected void execute(Event event) {
-        Player p = player.getSingle(event);
         String link = imageLink.getSingle(event);
+        Player p = player.getSingle(event);
         Bukkit.getScheduler().runTaskLaterAsynchronously(LabySK.getLabySK(), new Consumer<BukkitTask>() { //Need delay to send packets
             @Override
             public void accept(BukkitTask bukkitTask) {
