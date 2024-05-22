@@ -21,12 +21,4 @@ public class ActionMenu {
         array.add(object);
     }
 
-    public static void removeAction(String name, String actionType, String value) {
-        JsonObject object = new JsonObject();
-        object.addProperty("displayName", name);
-        object.addProperty("type", actionType);
-        object.addProperty("value", value);
-        array.remove(object);
-    }
-
 }

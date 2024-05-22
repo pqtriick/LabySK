@@ -40,10 +40,7 @@ public class ActionMenuEff extends Effect {
                 ActionMenu.sendActions(all);
             }
         } else {
-            for (Player all : Bukkit.getOnlinePlayers()) {
-                ActionMenu.removeAction(displayname, actionType.toUpperCase(), displayValue);
-                ActionMenu.sendActions(all);
-            }
+            System.out.println("Warning! Removing actions from the action Menu is not supported in the 1.8! Sorry!");
         }
 
     }
