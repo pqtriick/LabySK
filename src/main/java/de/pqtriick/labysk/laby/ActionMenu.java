@@ -2,7 +2,6 @@ package de.pqtriick.labysk.laby;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import de.pqtriick.labysk.LabySK;
 import org.bukkit.entity.Player;
 
 public class ActionMenu {
@@ -10,7 +9,7 @@ public class ActionMenu {
     private static JsonArray array = new JsonArray();
 
     public static void sendActions(Player player) {
-        player.sendPluginMessage(LabySK.getLabySK(),"labymod3:main", Protocol.getBytesToSend("user_menu_actions", array.toString()));
+        Protocol.sendLabyModMessage(player, "user_menu_actions", array);
     }
 
     public static void addAction(String name, String actionType, String value) {
