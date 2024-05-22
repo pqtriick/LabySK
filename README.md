@@ -12,9 +12,12 @@ To use this plugin you need the following dependencies:
 - <a href = https://github.com/SkriptLang>Skript
 - <a href = https://github.com/LabyMod/labymod-server-api>LabyMod Server API
 - <a href = https://github.com/dmulloy2/ProtocolLib>ProtocolLib
+- <a href = https://www.spigotmc.org/resources/citizens.13811/> Citizens
 
 ## Important Note
 This plugin was developed for the version 1.20.4 and was tested with Paper and LabyMod Version 4.2
+- There is also a Version for users that use 1.8 (Download for 1.8)
+### Currently there are only some features implemented. More will be implemented soon.
 
 # Features
 
