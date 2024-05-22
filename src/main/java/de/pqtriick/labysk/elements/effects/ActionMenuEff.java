@@ -29,9 +29,10 @@ public class ActionMenuEff extends Effect {
         String displayname = name.getSingle(event);
         String displayValue = value.getSingle(event);
         String actionType = type.getSingle(event);
-        switch (pattern) {
-            case 1 -> addition = true;
-            case 2 -> addition = false;
+        if (pattern == 1) {
+            addition = true;
+        } else {
+            addition = false;
         }
         if (addition) {
             for (Player all: Bukkit.getOnlinePlayers()) {
