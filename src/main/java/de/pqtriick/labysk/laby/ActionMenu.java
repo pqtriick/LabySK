@@ -18,7 +18,9 @@ public class ActionMenu {
         object.addProperty("displayName", name);
         object.addProperty("type", actionType);
         object.addProperty("value", value);
-        array.add(object);
+        if (!array.contains(object)) {
+            array.add(object);
+        }
     }
 
     public static void removeAction(String name, String actionType, String value) {
