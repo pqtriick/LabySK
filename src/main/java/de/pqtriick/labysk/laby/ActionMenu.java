@@ -17,7 +17,13 @@ public class ActionMenu {
         object.addProperty("displayName", name);
         object.addProperty("type", actionType);
         object.addProperty("value", value);
-        array.add(object);
+        for (int i = 0; i < array.size(); i++) {
+            if (!array.get(i).equals(object)) {
+                array.add(object);
+            }
+        }
     }
+
+
 
 }
