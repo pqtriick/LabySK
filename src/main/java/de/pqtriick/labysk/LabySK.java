@@ -4,6 +4,7 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import de.pqtriick.labysk.laby.CheckForLaby;
 import de.pqtriick.labysk.laby.Protocol;
+import de.pqtriick.labysk.listener.Quit;
 import de.pqtriick.labysk.util.Metrics;
 import de.pqtriick.labysk.util.update.VersionCheck;
 import de.pqtriick.labysk.util.update.VersionInform;
@@ -43,6 +44,7 @@ public final class LabySK extends JavaPlugin implements PluginMessageListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Bukkit.getPluginManager().registerEvents(new Quit(), this );
         Bukkit.getLogger().info("[LabySK] LabySK Loaded successfully");
 
     }

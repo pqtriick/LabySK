@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.elements.effects;
+package de.pqtriick.labysk.elements.effects.actions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
@@ -18,10 +18,11 @@ public class ActionMenuEff extends Effect {
     private Expression<String> name;
     private Expression<String> value;
     private Expression<String> type;
+    private Expression<Player> player;
     private boolean addition;
 
     static {
-        Skript.registerEffect(ActionMenuEff.class, "(1:(add)|2:(remove)) action with name %string% and value %string% as type %string%");
+        Skript.registerEffect(ActionMenuEff.class, "(1:(add)|2:(remove)) action with name %string% and value %string% as type %string% for %player%");
     }
 
     @Override
@@ -29,22 +30,16 @@ public class ActionMenuEff extends Effect {
         String displayname = name.getSingle(event);
         String displayValue = value.getSingle(event);
         String actionType = type.getSingle(event);
+        Player p = player.getSingle(event);
         switch (pattern) {
             case 1 -> addition = true;
             case 2 -> addition = false;
         }
         if (addition) {
-            for (Player all: Bukkit.getOnlinePlayers()) {
-                ActionMenu.addAction(displayname, actionType.toUpperCase(), displayValue);
-                ActionMenu.sendActions(all);
-            }
+            ActionMenu.addAction(displayname, actionType.toUpperCase(), displayValue, p);
         } else {
-            for (Player all : Bukkit.getOnlinePlayers()) {
-                ActionMenu.removeAction(displayname, actionType.toUpperCase(), displayValue);
-                ActionMenu.sendActions(all);
-            }
+            ActionMenu.removeAction(displayname, actionType.toUpperCase(), displayValue, p);
         }
-
     }
 
     @Override
@@ -58,6 +53,7 @@ public class ActionMenuEff extends Effect {
         name = (Expression<String>) expressions[0];
         value = (Expression<String>) expressions[1];
         type = (Expression<String>) expressions[2];
+        player = (Expression<Player>) expressions[3];
         return true;
     }
 }
