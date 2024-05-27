@@ -1,9 +1,13 @@
 package de.pqtriick.labysk.laby;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class ActionMenu {
@@ -17,6 +21,7 @@ public class ActionMenu {
     }
 
     public static void addAction(String name, String actionType, String value, Player player) {
+        boolean exists = false;
         JsonObject object = new JsonObject();
         object.addProperty("displayName", name);
         object.addProperty("type", actionType);
@@ -27,12 +32,15 @@ public class ActionMenu {
             actionMap.put(player, array);
         } else {
             JsonArray array = actionMap.get(player);
-            for (int i = 0; i < array.size(); i++) {
-                if (!array.get(i).equals(object)) {
-                    array.add(object);
-                    actionMap.remove(player);
-                    actionMap.put(player, array);
+            for (JsonElement element : array) {
+                if (element.isJsonObject() && (!element.getAsJsonObject().equals(object))) {
+                    exists = true;
                 }
+            }
+            if (exists) {
+                array.add(object);
+                actionMap.remove(player);
+                actionMap.put(player, array);
             }
         }
     }
