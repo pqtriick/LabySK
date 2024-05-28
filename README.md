@@ -29,3 +29,12 @@ Here you can find the current supported features including syntax
 
 If you find any bugs you can create an issue in the issues tab in this repository.
 I will try my best and fix it asap.
+
+# Used Tools & Languages
+<a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" alt="java" width="80" height="60"/> </a> 
+<img width="12" />
+<a href="https://www.jetbrains.com/de-de/idea/" target="_blank" rel="noreferrer"> <img src="https://github.com/devicons/devicon/blob/master/icons/intellij/intellij-original.svg" alt="intellij" width="80" height="60"/> </a> 
+<img width="12" />
+<a href="https://gradle.org/" target="_blank" rel="noreferrer"> <img src="https://github.com/devicons/devicon/blob/master/icons/gradle/gradle-original.svg" alt="gradle" width="80" height="60"/> </a> 
+
+
