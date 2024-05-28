@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
+    compileOnly "io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT"
     implementation 'com.github.SkriptLang:Skript:2.8.5'
     implementation 'io.netty:netty-all:4.1.100.Final'
     compileOnly('net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT') {
@@ -38,7 +38,7 @@ dependencies {
 
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 21
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
