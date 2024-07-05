@@ -5,12 +5,11 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.LabyNPC;
+import de.pqtriick.labysk.laby.laby4.npc.LabyNPC;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 import javax.annotation.Nullable;
-import java.util.UUID;
 
 public class NPCEff extends Effect {
 

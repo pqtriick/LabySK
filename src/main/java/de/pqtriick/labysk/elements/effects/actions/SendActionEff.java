@@ -5,7 +5,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.ActionMenu;
+import de.pqtriick.labysk.laby.laby4.action.LabyActions;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -21,7 +21,7 @@ public class SendActionEff extends Effect {
     @Override
     protected void execute(Event event) {
         Player p = player.getSingle(event);
-        ActionMenu.sendActions(p);
+        LabyActions.sendActions(p);
     }
 
     @Override

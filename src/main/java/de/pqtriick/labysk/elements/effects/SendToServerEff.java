@@ -8,7 +8,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.SendToServer;
+import de.pqtriick.labysk.laby.laby4.SendToServer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -21,25 +21,19 @@ import javax.annotation.Nullable;
 public class SendToServerEff extends Effect {
 
     static {
-        Skript.registerEffect(SendToServerEff.class, "send %player% to server %string% titled %string% %string% preview");
+        Skript.registerEffect(SendToServerEff.class, "send %player% to server %string% titled %string%");
     }
 
     Expression<Player> player;
     Expression<String> address;
     Expression<String> title;
-    Expression<String> state;
 
     @Override
     protected void execute(Event event) {
         Player p = player.getSingle(event);
         String ip = address.getSingle(event);
         String text = title.getSingle(event);
-        String s = state.getSingle(event);
-        if (s.equalsIgnoreCase("with")) {
-            SendToServer.sendPlayer(p, text, ip, true);
-        } else if (s.equalsIgnoreCase("without")) {
-            SendToServer.sendPlayer(p, text, ip, false);
-        }
+        SendToServer.send(p, ip, text);
     }
 
     @Override
@@ -52,7 +46,6 @@ public class SendToServerEff extends Effect {
         player = (Expression<Player>) expressions[0];
         address = (Expression<String>) expressions[1];
         title = (Expression<String>) expressions[2];
-        state = (Expression<String>) expressions[3];
         return true;
     }
 }

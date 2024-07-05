@@ -5,7 +5,7 @@ import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.CheckForLaby;
+import de.pqtriick.labysk.laby.laby4.CheckForLaby;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 

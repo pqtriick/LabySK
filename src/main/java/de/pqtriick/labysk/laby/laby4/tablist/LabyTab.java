@@ -1,33 +1,30 @@
-package de.pqtriick.labysk.laby;
+package de.pqtriick.labysk.laby.laby4.tablist;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import de.pqtriick.labysk.LabySK;
+import net.labymod.serverapi.core.model.display.TabListFlag;
+import net.labymod.serverapi.server.bukkit.LabyModPlayer;
+import net.labymod.serverapi.server.bukkit.LabyModProtocolService;
 import org.bukkit.entity.Player;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.UUID;
 
-public class CountryCode {
+public class LabyTab {
 
-    public static void sendFlag(Player reciever, UUID uuid, String country) {
-        JsonObject object = new JsonObject();
-        JsonArray users = new JsonArray();
-        JsonObject userObject = new JsonObject();
-        userObject.addProperty("uuid", uuid.toString());
-        userObject.addProperty("code", country);
-        users.add(userObject);
-
-        object.add("users",  users);
-
-        reciever.sendPluginMessage(LabySK.getLabySK(),"labymod3:main", Protocol.getBytesToSend("language_flag", object.toString()));
+    public static void sendServerBanner(Player player, String banner) {
+        LabyModPlayer labyPlayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
+        labyPlayer.sendTabListBanner(banner);
 
     }
 
-    public static String getCountryCode(Player player) {
+    public static void sendFlag(Player player) {
+        LabyModPlayer labyPlayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
+        String country = getCountryCode(player);
+        labyPlayer.setTabListFlag(TabListFlag.TabListFlagCountryCode.getCountryCode(country));
+    }
+
+    private static String getCountryCode(Player player) {
         String ip = player.getAddress().toString();
         String countryCode = "";
         try {
@@ -43,7 +40,7 @@ public class CountryCode {
             }
             countryCode = countryCode.replace("{\"countryCode\":\"", "");
             countryCode = countryCode.replace("\"}", "");
-            countryCode = countryCode.toLowerCase();
+            countryCode = countryCode.toUpperCase();
         } catch (Exception e) {}
         return countryCode;
     }

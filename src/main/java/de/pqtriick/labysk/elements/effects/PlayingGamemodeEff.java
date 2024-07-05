@@ -1,7 +1,6 @@
 package de.pqtriick.labysk.elements.effects;
 
 import ch.njol.skript.Skript;
-import ch.njol.skript.SkriptAddon;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -9,7 +8,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.PlayingGamemode;
+import de.pqtriick.labysk.laby.laby4.display.PlayingGamemode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -31,7 +30,7 @@ public class PlayingGamemodeEff extends Effect {
     protected void execute(Event event) {
         Player p = player.getSingle(event);
         String text = gamemode.getSingle(event);
-        PlayingGamemode.sendGamemode(p, true, text);
+        PlayingGamemode.sendPlayingGamemode(p, text);
 
 
 

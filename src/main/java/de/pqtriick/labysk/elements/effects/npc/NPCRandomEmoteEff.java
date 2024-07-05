@@ -5,7 +5,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.LabyNPC;
+import de.pqtriick.labysk.laby.laby4.npc.LabyNPC;
 import net.citizensnpcs.api.CitizensAPI;
 import net.citizensnpcs.api.npc.NPC;
 import org.bukkit.entity.Player;
@@ -26,7 +26,7 @@ public class NPCRandomEmoteEff extends Effect {
         Integer n = npc.getSingle(event);
         Player p = player.getSingle(event);
         NPC npc = CitizensAPI.getNPCRegistry().getById(n);
-        LabyNPC.playRandomEmote(p, npc.getUniqueId());
+        LabyNPC.playRandomEmote(npc.getUniqueId(), p);
     }
 
     @Override

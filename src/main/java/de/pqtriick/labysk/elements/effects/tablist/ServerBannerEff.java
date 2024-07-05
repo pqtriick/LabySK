@@ -9,7 +9,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import de.pqtriick.labysk.LabySK;
-import de.pqtriick.labysk.laby.ServerBanner;
+import de.pqtriick.labysk.laby.laby4.tablist.LabyTab;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -38,7 +38,7 @@ public class ServerBannerEff extends Effect {
         Bukkit.getScheduler().runTaskLaterAsynchronously(LabySK.getLabySK(), new Consumer<BukkitTask>() { //Need delay to send packets
             @Override
             public void accept(BukkitTask bukkitTask) {
-                ServerBanner.sendBanner(p, link);
+                LabyTab.sendServerBanner(p, link);
             }
         }, 20);
     }

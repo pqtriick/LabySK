@@ -9,10 +9,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.LabySK;
-import de.pqtriick.labysk.laby.CheckForLaby;
-import de.pqtriick.labysk.laby.laby4.Subtitle;
-import org.bukkit.Bukkit;
+import de.pqtriick.labysk.laby.laby4.display.LabySubtitle;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -38,7 +35,7 @@ public class SetSubtitleEff extends Effect {
         String subtitle = text.getSingle(event);
         Double s = size.getSingle(event);
         Player r = reciever.getSingle(event);
-        Subtitle.sendSubtitle(r, p, subtitle, s);
+        LabySubtitle.sendSubtitle(r, p, subtitle, s);
     }
 
     @Override

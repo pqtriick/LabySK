@@ -8,7 +8,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.AddonRecommendation;
+import de.pqtriick.labysk.laby.laby4.AddonRecommend;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -35,9 +35,9 @@ public class RecommendAddonEff extends Effect {
         Player p = player.getSingle(event);
 
         if (s.equalsIgnoreCase("optional")) {
-            AddonRecommendation.recommend(addonuuid, p, false);
+            AddonRecommend.sendRecommendation(addonuuid, p, false);
         } else if (s.equalsIgnoreCase("required")) {
-            AddonRecommendation.recommend(addonuuid, p, true);
+            AddonRecommend.sendRecommendation(addonuuid, p, true);
         }
 
     }

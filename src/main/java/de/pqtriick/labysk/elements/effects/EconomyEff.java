@@ -8,7 +8,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.EconomyDisplay;
+import de.pqtriick.labysk.laby.laby4.display.Economy;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -31,7 +31,7 @@ public class EconomyEff extends Effect {
         int c = cash.getSingle(event);
         int b = bank.getSingle(event);
         Player p = player.getSingle(event);
-        EconomyDisplay.setBalanceDisplay(p, c, b);
+        Economy.send(p, c, b);
 
     }
 

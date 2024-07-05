@@ -5,8 +5,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.ActionMenu;
-import org.bukkit.Bukkit;
+import de.pqtriick.labysk.laby.laby4.action.LabyActions;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -36,9 +35,9 @@ public class ActionMenuEff extends Effect {
             case 2 -> addition = false;
         }
         if (addition) {
-            ActionMenu.addAction(displayname, actionType.toUpperCase(), displayValue, p);
+            LabyActions.addAction(displayname, actionType.toUpperCase(), displayValue, p);
         } else {
-            ActionMenu.removeAction(displayname, actionType.toUpperCase(), displayValue, p);
+            LabyActions.removeAction(displayname, actionType.toUpperCase(), displayValue, p);
         }
     }
 
