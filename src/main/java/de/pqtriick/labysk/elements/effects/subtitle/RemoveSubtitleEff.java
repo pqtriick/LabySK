@@ -8,8 +8,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.Subtitle;
-import org.bukkit.Bukkit;
+import de.pqtriick.labysk.laby.laby4.Subtitle;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -31,7 +30,7 @@ public class RemoveSubtitleEff extends Effect {
     protected void execute(Event event) {
         Player p = player.getSingle(event);
         Player t = target.getSingle(event);
-        Subtitle.sendSubtitle(t, p.getUniqueId(), null, 0.8);
+        Subtitle.sendSubtitle(t, p, null, 0.8);
 
     }
 

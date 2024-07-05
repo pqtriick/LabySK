@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'de.pqtriick'
@@ -26,19 +27,23 @@ repositories {
     maven {
         url 'https://repo.skriptlang.org/releases'
     }
+    maven {
+        name = "labymod"
+        url = "https://dist.labymod.net/api/v1/maven/release/"
+    }
 }
 
 dependencies {
-    compileOnly "io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT"
+    compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
     implementation 'com.github.SkriptLang:Skript:2.8.5'
     implementation 'io.netty:netty-all:4.1.100.Final'
     compileOnly('net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT') {
         exclude group: '*', module: '*'
     }
-
+    shadow 'net.labymod.serverapi:server-bukkit:1.0.0'
 }
 
-def targetJavaVersion = 21
+def targetJavaVersion = 20
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
@@ -46,6 +51,12 @@ java {
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    configurations = [project.configurations.shadow]
+
 }
 
 tasks.withType(JavaCompile).configureEach {
