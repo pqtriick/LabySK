@@ -23,6 +23,9 @@ Here you can find the current supported features including syntax
 
 [![SkriptHubViewTheDocs](http://skripthub.net/static/addon/ViewTheDocsButton.png)](http://skripthub.net/docs/?addon=LabySK)
 
+
+[You can also see how the features will look ingame when you click on this message](https://github.com/pqtriick/LabySK/blob/master/preview.md)
+
 # Bugs
 
 If you find any bugs you can create an issue in the issues tab in this repository.
