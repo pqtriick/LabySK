@@ -40,7 +40,7 @@ dependencies {
     compileOnly('net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT') {
         exclude group: '*', module: '*'
     }
-    shadow 'net.labymod.serverapi:server-bukkit:1.0.0'
+    shadow 'net.labymod.serverapi:server-bukkit:1.0.1'
 }
 
 def targetJavaVersion = 20

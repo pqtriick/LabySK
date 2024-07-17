@@ -11,6 +11,8 @@ public class Economy {
         LabyModPlayer labyPlayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
         EconomyDisplay cashDisplay = labyPlayer.cashEconomy();
         EconomyDisplay bankDisplay = labyPlayer.bankEconomy();
+        bankDisplay.visible(true);
+        cashDisplay.visible(true);
 
         cashDisplay.balance(cashDisplay.getBalance() + cash);
         bankDisplay.balance(bankDisplay.getBalance() + bank);
