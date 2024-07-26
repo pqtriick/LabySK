@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.elements.effects;
+package de.pqtriick.labysk.elements.addons;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
@@ -8,7 +8,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.laby4.AddonRecommend;
+import de.pqtriick.labysk.laby.laby4.addons.AddonRecommend;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 

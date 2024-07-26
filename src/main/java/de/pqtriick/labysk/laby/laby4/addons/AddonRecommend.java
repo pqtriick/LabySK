@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.laby.laby4;
+package de.pqtriick.labysk.laby.laby4.addons;
 
 import net.labymod.serverapi.core.model.moderation.RecommendedAddon;
 import net.labymod.serverapi.server.bukkit.LabyModPlayer;
