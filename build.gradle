@@ -13,8 +13,10 @@ repositories {
         url = 'https://maven.citizensnpcs.co/repo'
     }
     maven {
-        name = "papermc-repo"
-        url = "https://repo.papermc.io/repository/maven-public/"
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+    maven {
+        url = 'https://oss.sonatype.org/content/repositories/central'
     }
     maven {
         name = "sonatype"
@@ -34,7 +36,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
+    implementation 'com.github.azbh111:spigot-1.8.8:R'
+
     implementation 'com.github.SkriptLang:Skript:2.8.5'
     implementation 'io.netty:netty-all:4.1.100.Final'
     compileOnly('net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT') {

@@ -6,15 +6,13 @@ import de.pqtriick.labysk.listener.Quit;
 import de.pqtriick.labysk.util.Metrics;
 import de.pqtriick.labysk.util.update.VersionCheck;
 import de.pqtriick.labysk.util.update.VersionInform;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.labymod.serverapi.server.bukkit.LabyModProtocolService;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LabySK extends JavaPlugin {
 
-    public static final Component PREFIX = MiniMessage.miniMessage().deserialize("<gradient:#FCD05C:#E43A96>LabySK");
+    public static final String PREFIX = "§cLabySK";
     public static boolean hasUpdate;
     private static LabySK labySK;
     private static SkriptAddon addon;
