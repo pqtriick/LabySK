@@ -1,28 +1,28 @@
-package de.pqtriick.labysk.elements.conditions;
+package de.pqtriick.labysk.elements.effects.player;
 
 import ch.njol.skript.Skript;
-import ch.njol.skript.lang.Condition;
+import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.laby4.player.CheckForLaby;
+import de.pqtriick.labysk.laby.laby4.player.LabyVoice;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 
-public class CheckLabyPlayer extends Condition {
+public class UnmutePlayerEff extends Effect {
 
-    Expression<Player> player;
+    private Expression<Player> player;
 
     static {
-        Skript.registerCondition(CheckLabyPlayer.class, "if %player% is using labymod");
+        Skript.registerEffect(MutePlayerEff.class, "unmute %player% from voicechat");
     }
 
     @Override
-    public boolean check(Event event) {
-        Player labyPlayer = player.getSingle(event);
-        return CheckForLaby.check(labyPlayer) == isNegated();
+    protected void execute(Event event) {
+        Player p = player.getSingle(event);
+        LabyVoice.unmute(p);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.elements.effects;
+package de.pqtriick.labysk.elements.effects.player;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
@@ -8,7 +8,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.laby4.SendToServer;
+import de.pqtriick.labysk.laby.laby4.player.SendToServer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
