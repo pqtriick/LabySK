@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.laby.laby4;
+package de.pqtriick.labysk.laby.laby4.player;
 
 import net.labymod.serverapi.api.model.component.ServerAPIComponent;
 import net.labymod.serverapi.core.model.supplement.ServerSwitchPrompt;

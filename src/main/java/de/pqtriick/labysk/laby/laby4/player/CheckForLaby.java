@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.laby.laby4;
+package de.pqtriick.labysk.laby.laby4.player;
 
 import net.labymod.serverapi.server.bukkit.LabyModPlayer;
 import net.labymod.serverapi.server.bukkit.LabyModProtocolService;
