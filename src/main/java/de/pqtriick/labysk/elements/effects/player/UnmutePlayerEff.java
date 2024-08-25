@@ -16,7 +16,7 @@ public class UnmutePlayerEff extends Effect {
     private Expression<Player> player;
 
     static {
-        Skript.registerEffect(MutePlayerEff.class, "unmute %player% from voicechat");
+        Skript.registerEffect(UnmutePlayerEff.class, "unmute %player% from voicechat");
     }
 
     @Override

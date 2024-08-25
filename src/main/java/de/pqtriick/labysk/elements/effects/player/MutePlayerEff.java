@@ -25,7 +25,7 @@ public class MutePlayerEff extends Effect {
     protected void execute(Event event) {
         Player p = player.getSingle(event);
         String r = reason.getSingle(event);
-        Integer t = time.getSingle(event);
+        int t = time.getSingle(event);
         LabyVoice.mute(p,r,t);
     }
 
