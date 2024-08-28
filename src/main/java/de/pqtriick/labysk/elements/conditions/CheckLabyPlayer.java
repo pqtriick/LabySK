@@ -5,7 +5,7 @@ import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import de.pqtriick.labysk.laby.laby4.player.CheckForLaby;
+import de.pqtriick.labysk.laby.laby4.player.LabyPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -23,7 +23,7 @@ public class CheckLabyPlayer extends Condition {
     @Override
     public boolean check(Event event) {
         Player labyPlayer = player.getSingle(event);
-        return CheckForLaby.check(labyPlayer) == isNegated();
+        return LabyPlayer.check(labyPlayer) == isNegated();
     }
 
     @Override
