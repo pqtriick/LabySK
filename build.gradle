@@ -47,7 +47,7 @@ dependencies {
     shadow "net.labymod.serverapi.integration:voicechat:1.0.1"
 }
 
-def targetJavaVersion = 20
+def targetJavaVersion = 8
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion

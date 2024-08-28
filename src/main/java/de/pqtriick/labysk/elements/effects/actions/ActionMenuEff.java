@@ -32,8 +32,10 @@ public class ActionMenuEff extends Effect {
         String actionType = type.getSingle(event);
         Player p = player.getSingle(event);
         switch (pattern) {
-            case 1 -> addition = true;
-            case 2 -> addition = false;
+            case 1:
+                addition = true;
+            case 2:
+                addition = false;
         }
         if (addition) {
             LabyActions.addAction(displayname, actionType.toUpperCase(), displayValue, p);

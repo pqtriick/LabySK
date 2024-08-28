@@ -17,13 +17,16 @@ public class CheckLabyPlayer extends Condition {
     Expression<Player> player;
 
     static {
-        Skript.registerCondition(CheckLabyPlayer.class, "if %player% is using labymod");
+        Skript.registerCondition(CheckLabyPlayer.class, "if %player% (1¦is|2¦is(n't| not)) using labymod");
+
+
     }
 
     @Override
     public boolean check(Event event) {
         Player labyPlayer = player.getSingle(event);
-        return LabyPlayer.check(labyPlayer) == isNegated();
+        if (labyPlayer == null) return isNegated();
+        return LabyPlayer.check(labyPlayer) ? isNegated() : !isNegated();
     }
 
     @Override
@@ -34,6 +37,7 @@ public class CheckLabyPlayer extends Condition {
     @Override
     public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
         player = (Expression<Player>) expressions[0];
+        setNegated(parseResult.mark == 1);
         return true;
     }
 }

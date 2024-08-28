@@ -24,10 +24,14 @@ public class LabyActions {
     public static void addAction(String name, String type, String value, Player player) {
         InteractionMenuEntry.InteractionMenuType menuType = null;
         switch (type) {
-            case "RUN_COMMAND" -> menuType = InteractionMenuEntry.InteractionMenuType.RUN_COMMAND;
-            case "CLIPBOARD" -> menuType = InteractionMenuEntry.InteractionMenuType.CLIPBOARD;
-            case "SUGGEST_COMMAND" -> menuType = InteractionMenuEntry.InteractionMenuType.SUGGEST_COMMAND;
-            case "OPEN_BROWSER" -> menuType = InteractionMenuEntry.InteractionMenuType.OPEN_BROWSER;
+            case "RUN_COMMAND":
+                menuType = InteractionMenuEntry.InteractionMenuType.RUN_COMMAND;
+            case "CLIPBOARD":
+                menuType = InteractionMenuEntry.InteractionMenuType.CLIPBOARD;
+            case "SUGGEST_COMMAND":
+                menuType = InteractionMenuEntry.InteractionMenuType.SUGGEST_COMMAND;
+            case "OPEN_BROWSER":
+                menuType = InteractionMenuEntry.InteractionMenuType.OPEN_BROWSER;
         }
         InteractionMenuEntry entry = InteractionMenuEntry.create(
                 ServerAPIComponent.text(name), menuType, value
@@ -48,10 +52,14 @@ public class LabyActions {
     public static void removeAction(String name, String type, String value, Player player) {
         InteractionMenuEntry.InteractionMenuType menuType = null;
         switch (type) {
-            case "RUN_COMMAND" -> menuType = InteractionMenuEntry.InteractionMenuType.RUN_COMMAND;
-            case "CLIPBOARD" -> menuType = InteractionMenuEntry.InteractionMenuType.CLIPBOARD;
-            case "SUGGEST_COMMAND" -> menuType = InteractionMenuEntry.InteractionMenuType.SUGGEST_COMMAND;
-            case "OPEN_BROWSER" -> menuType = InteractionMenuEntry.InteractionMenuType.OPEN_BROWSER;
+            case "RUN_COMMAND":
+                menuType = InteractionMenuEntry.InteractionMenuType.RUN_COMMAND;
+            case "CLIPBOARD":
+                menuType = InteractionMenuEntry.InteractionMenuType.CLIPBOARD;
+            case "SUGGEST_COMMAND":
+                menuType = InteractionMenuEntry.InteractionMenuType.SUGGEST_COMMAND;
+            case "OPEN_BROWSER":
+                menuType = InteractionMenuEntry.InteractionMenuType.OPEN_BROWSER;
         }
         InteractionMenuEntry entry = InteractionMenuEntry.create(
                 ServerAPIComponent.text(name), menuType, value
