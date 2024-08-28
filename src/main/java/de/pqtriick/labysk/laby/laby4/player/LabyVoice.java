@@ -11,14 +11,16 @@ public class LabyVoice {
     public static void mute(Player player, String reason, int minutes) {
         long time = minutes*60000L;
         VoiceChatMute mute = VoiceChatMute.create(player.getUniqueId(), reason, System.currentTimeMillis() + time);
-        LabyModPlayer labyplayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
-        VoiceChatPlayer voiceplayer = labyplayer.getIntegrationPlayer(VoiceChatPlayer.class);
+        LabyModPlayer labyPlayer = LabyPlayer.getPlayer(player);
+        if (labyPlayer == null) return;
+        VoiceChatPlayer voiceplayer = labyPlayer.getIntegrationPlayer(VoiceChatPlayer.class);
         voiceplayer.mute(mute);
     }
 
     public static void unmute(Player player) {
-        LabyModPlayer labyplayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
-        VoiceChatPlayer voiceplayer = labyplayer.getIntegrationPlayer(VoiceChatPlayer.class);
+        LabyModPlayer labyPlayer = LabyPlayer.getPlayer(player);
+        if (labyPlayer == null) return;
+        VoiceChatPlayer voiceplayer = labyPlayer.getIntegrationPlayer(VoiceChatPlayer.class);
         voiceplayer.unmute();
     }
 }

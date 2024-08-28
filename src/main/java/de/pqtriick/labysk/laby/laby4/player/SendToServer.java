@@ -14,7 +14,8 @@ public class SendToServer {
         ServerSwitchPrompt serverSwitchPrompt = ServerSwitchPrompt.create(
                 ServerAPIComponent.text(title), ip);
 
-        LabyModPlayer labyPlayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
+        LabyModPlayer labyPlayer = LabyPlayer.getPlayer(player);
+        if (labyPlayer == null) return;
         labyPlayer.openServerSwitchPrompt(serverSwitchPrompt);
     }
 }
