@@ -1,9 +1,9 @@
 package de.pqtriick.labysk.laby.laby4.action;
 
+import de.pqtriick.labysk.laby.laby4.player.LabyPlayer;
 import net.labymod.serverapi.api.model.component.ServerAPIComponent;
 import net.labymod.serverapi.core.model.feature.InteractionMenuEntry;
 import net.labymod.serverapi.server.bukkit.LabyModPlayer;
-import net.labymod.serverapi.server.bukkit.LabyModProtocolService;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -16,7 +16,8 @@ public class LabyActions {
 
 
     public static void sendActions(Player player) {
-        LabyModPlayer labyPlayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
+        LabyModPlayer labyPlayer = LabyPlayer.getPlayer(player);
+        if (labyPlayer == null) return;
         labyPlayer.sendInteractionMenuEntries(actionmap.get(player));
     }
 

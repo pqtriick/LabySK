@@ -1,5 +1,6 @@
 package de.pqtriick.labysk.laby.laby4.tablist;
 
+import de.pqtriick.labysk.laby.laby4.player.LabyPlayer;
 import net.labymod.serverapi.core.model.display.TabListFlag;
 import net.labymod.serverapi.server.bukkit.LabyModPlayer;
 import net.labymod.serverapi.server.bukkit.LabyModProtocolService;
@@ -13,13 +14,15 @@ import java.net.URL;
 public class LabyTab {
 
     public static void sendServerBanner(Player player, String banner) {
-        LabyModPlayer labyPlayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
+        LabyModPlayer labyPlayer = LabyPlayer.getPlayer(player);
+        if (labyPlayer == null) return;
         labyPlayer.sendTabListBanner(banner);
 
     }
 
     public static void sendFlag(Player player) {
-        LabyModPlayer labyPlayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
+        LabyModPlayer labyPlayer = LabyPlayer.getPlayer(player);
+        if (labyPlayer == null) return;
         String country = getCountryCode(player);
         labyPlayer.setTabListFlag(TabListFlag.TabListFlagCountryCode.getCountryCode(country));
     }

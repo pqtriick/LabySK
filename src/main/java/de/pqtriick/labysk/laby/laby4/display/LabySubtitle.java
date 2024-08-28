@@ -3,7 +3,6 @@ package de.pqtriick.labysk.laby.laby4.display;
 import net.labymod.serverapi.api.model.component.ServerAPIComponent;
 import net.labymod.serverapi.core.LabyModProtocol;
 import net.labymod.serverapi.core.packet.clientbound.game.display.SubtitlePacket;
-import net.labymod.serverapi.server.bukkit.LabyModPlayer;
 import net.labymod.serverapi.server.bukkit.LabyModProtocolService;
 import org.bukkit.entity.Player;
 
