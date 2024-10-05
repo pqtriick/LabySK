@@ -12,3 +12,4 @@ public class Quit implements Listener {
         LabyActions.removeFromMap(event.getPlayer());
     }
 }
+

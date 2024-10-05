@@ -17,6 +17,7 @@ public class LabyActions {
 
     public static void sendActions(Player player) {
         LabyModPlayer labyPlayer = LabyModProtocolService.get().getPlayer(player.getUniqueId());
+        if (labyPlayer == null) return;
         labyPlayer.sendInteractionMenuEntries(actionmap.get(player));
     }
 
