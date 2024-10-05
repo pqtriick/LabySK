@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.elements.addons;
+package de.pqtriick.labysk.elements.effects.addons;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
