@@ -8,7 +8,8 @@ import ch.njol.util.Kleenean;
 import de.pqtriick.labysk.laby.laby4.player.LabyPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 
 public class CheckLabyPlayer extends Condition {

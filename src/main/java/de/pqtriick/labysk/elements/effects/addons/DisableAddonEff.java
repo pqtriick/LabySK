@@ -1,4 +1,4 @@
-package de.pqtriick.labysk.elements.addons;
+package de.pqtriick.labysk.elements.effects.addons;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
@@ -6,22 +6,22 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import de.pqtriick.labysk.laby.laby4.addons.DisableAddons;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 import javax.annotation.Nullable;
 
-public class BlockAddonListEff extends Effect {
+public class DisableAddonEff extends Effect {
 
-    private Expression<String> addon;
+    private Expression<Player> player;
 
     static {
-        Skript.registerEffect(BlockAddonListEff.class, "add addon with id %string% to blocked list");
+        Skript.registerEffect(DisableAddonEff.class, "disable added addons for %player%");
     }
-
     @Override
     protected void execute(Event event) {
-        String a = addon.getSingle(event);
-        DisableAddons.add(a);
+        Player p = player.getSingle(event);
+        DisableAddons.send(p);
 
     }
 
@@ -32,7 +32,7 @@ public class BlockAddonListEff extends Effect {
 
     @Override
     public boolean init(Expression<?>[] expressions, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
-        addon = (Expression<String>) expressions[0];
+        player = (Expression<Player>) expressions[0];
         return true;
     }
 }
