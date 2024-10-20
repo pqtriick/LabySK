@@ -4,6 +4,7 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import de.pqtriick.labysk.listener.Quit;
 import de.pqtriick.labysk.util.Metrics;
+import de.pqtriick.labysk.util.TimeHandler;
 import de.pqtriick.labysk.util.update.VersionCheck;
 import de.pqtriick.labysk.util.update.VersionInform;
 import net.kyori.adventure.text.Component;
@@ -27,6 +28,7 @@ public final class LabySK extends JavaPlugin {
         checkUpdate();
         LabyModProtocolService.initialize(this);
         Metrics metrics = new Metrics(this, id);
+        TimeHandler.handle();
         Bukkit.getPluginManager().registerEvents(new VersionInform(), this);
         try {
             addon.loadClasses("de.pqtriick.labysk", "elements");
