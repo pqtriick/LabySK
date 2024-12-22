@@ -35,11 +35,8 @@ public class ServerBannerEff extends Effect {
     protected void execute(Event event) {
         String link = imageLink.getSingle(event);
         Player p = player.getSingle(event);
-        Bukkit.getScheduler().runTaskLaterAsynchronously(LabySK.getLabySK(), new Consumer<BukkitTask>() { //Need delay to send packets
-            @Override
-            public void accept(BukkitTask bukkitTask) {
-                LabyTab.sendServerBanner(p, link);
-            }
+        Bukkit.getScheduler().runTaskLater(LabySK.getLabySK(), () -> { //Need delay to send packets
+            LabyTab.sendServerBanner(p, link);
         }, 20);
     }
 

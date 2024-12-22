@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'de.pqtriick'
-version = '2.2'
+version = '2.3'
 
 repositories {
     mavenCentral()
@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
+    compileOnly "io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT"
     implementation 'com.github.SkriptLang:Skript:2.8.5'
     implementation 'io.netty:netty-all:4.1.100.Final'
     compileOnly('net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT') {
@@ -44,7 +44,7 @@ dependencies {
     shadow "net.labymod.serverapi.integration:voicechat:1.0.1"
 }
 
-def targetJavaVersion = 20
+def targetJavaVersion = 21
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
