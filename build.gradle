@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'de.pqtriick'
-version = '2.2'
+version = '2.3'
 
 repositories {
     mavenCentral()
@@ -44,7 +44,7 @@ dependencies {
     shadow "net.labymod.serverapi.integration:voicechat:1.0.1"
 }
 
-def targetJavaVersion = 20
+def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion

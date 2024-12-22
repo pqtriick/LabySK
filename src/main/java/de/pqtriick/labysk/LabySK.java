@@ -2,6 +2,7 @@ package de.pqtriick.labysk;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
+import de.pqtriick.labysk.laby.laby4.display.marker.MarkerPacketHandler;
 import de.pqtriick.labysk.listener.Quit;
 import de.pqtriick.labysk.util.Metrics;
 import de.pqtriick.labysk.util.TimeHandler;
@@ -9,6 +10,8 @@ import de.pqtriick.labysk.util.update.VersionCheck;
 import de.pqtriick.labysk.util.update.VersionInform;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.labymod.serverapi.core.LabyModProtocol;
+import net.labymod.serverapi.core.packet.serverbound.game.feature.marker.ClientAddMarkerPacket;
 import net.labymod.serverapi.server.bukkit.LabyModProtocolService;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -36,6 +39,7 @@ public final class LabySK extends JavaPlugin {
             e.printStackTrace();
         }
         Bukkit.getPluginManager().registerEvents(new Quit(), this );
+        registerHandlers();
         Bukkit.getLogger().info("[LabySK] LabySK Loaded successfully");
 
     }
@@ -51,6 +55,11 @@ public final class LabySK extends JavaPlugin {
 
     public static SkriptAddon getAddon() {
         return addon;
+    }
+
+    private static void registerHandlers() {
+        LabyModProtocol protocol = LabyModProtocolService.get().labyModProtocol();
+        protocol.registerHandler(ClientAddMarkerPacket.class, new MarkerPacketHandler(LabyModProtocolService.get()));
     }
 
 

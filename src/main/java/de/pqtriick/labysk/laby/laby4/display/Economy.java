@@ -15,8 +15,8 @@ public class Economy {
         bankDisplay.visible(true);
         cashDisplay.visible(true);
 
-        cashDisplay.balance(cashDisplay.getBalance() + cash);
-        bankDisplay.balance(bankDisplay.getBalance() + bank);
+        cashDisplay.balance(cash);
+        bankDisplay.balance(bank);
 
         labyPlayer.sendEconomy(cashDisplay);
         labyPlayer.sendEconomy(bankDisplay);
