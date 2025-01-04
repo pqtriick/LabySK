@@ -17,8 +17,4 @@ public class LabyPlayer {
         return labyModPlayer;
     }
 
-    public static boolean check(Player player) {
-        LabyModPlayer labyPlayer = getPlayer(player);
-        return labyPlayer != null;
-    }
 }
