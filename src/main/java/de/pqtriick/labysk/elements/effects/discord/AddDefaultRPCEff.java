@@ -17,7 +17,7 @@ public class AddDefaultRPCEff extends Effect {
     private Expression<Player> player;
 
     static {
-        Skript.registerEffect(AddDefaultRPCEff.class, "create Discord RPC namedc %string% for %player%");
+        Skript.registerEffect(AddDefaultRPCEff.class, "create Discord RPC named %string% for %player%");
     }
 
     @Override
