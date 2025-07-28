@@ -4,7 +4,9 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.log.ErrorQuality;
 import ch.njol.util.Kleenean;
+import de.pqtriick.labysk.LabySK;
 import de.pqtriick.labysk.laby.laby4.npc.LabyNPC;
 import net.citizensnpcs.api.CitizensAPI;
 import net.citizensnpcs.api.npc.NPC;
@@ -36,6 +38,10 @@ public class NPCRandomEmoteEff extends Effect {
 
     @Override
     public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+        if (!LabySK.getLabySK().isCitizensActive()) {
+            Skript.error("Citizens is not installed on this server!", ErrorQuality.SEMANTIC_ERROR);
+            return false;
+        }
         npc = (Expression<Integer>) expressions[0];
         player = (Expression<Player>) expressions[1];
         return true;
