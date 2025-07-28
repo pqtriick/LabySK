@@ -21,8 +21,9 @@ public final class LabySK extends JavaPlugin {
     public static final Component PREFIX = MiniMessage.miniMessage().deserialize("<gradient:#FCD05C:#E43A96>LabySK");
     public static boolean hasUpdate;
     private static LabySK labySK;
-    private static SkriptAddon addon;
+    private SkriptAddon addon;
     private static final int id = 21800;
+    public boolean hasCitizens = true;
 
     @Override
     public void onEnable() {
@@ -41,7 +42,10 @@ public final class LabySK extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Quit(), this );
         registerHandlers();
         Bukkit.getLogger().info("[LabySK] LabySK Loaded successfully");
-
+        if (Bukkit.getServer().getPluginManager().getPlugin("Citizens") == null) {
+            Bukkit.getLogger().info("[LabySK] Citizens not found, therefore labynpc features can not be used!");
+            hasCitizens = false;
+        }
     }
 
     @Override
@@ -53,13 +57,13 @@ public final class LabySK extends JavaPlugin {
         return labySK;
     }
 
-    public static SkriptAddon getAddon() {
-        return addon;
-    }
-
-    private static void registerHandlers() {
+    private void registerHandlers() {
         LabyModProtocol protocol = LabyModProtocolService.get().labyModProtocol();
         protocol.registerHandler(ClientAddMarkerPacket.class, new MarkerPacketHandler(LabyModProtocolService.get()));
+    }
+
+    public boolean isCitizensActive() {
+        return hasCitizens;
     }
 
 
