@@ -9,13 +9,11 @@ LabySk is a SkriptAddon which allows you to use the LabyMod Server API with simp
 To use this plugin you need the following dependencies:
 
 - <a href = https://github.com/SkriptLang>Skript
-- <a href = https://github.com/dmulloy2/ProtocolLib>ProtocolLib
-- <a href = https://www.spigotmc.org/resources/citizens.13811/> Citizens
+- <a href = https://www.spigotmc.org/resources/citizens.13811/> Citizens (Optional but needed if you want to use npc features)
 
 ## Important Note
 This plugin was developed for the version 1.20.4 and was tested with Paper and LabyMod Version 4.2
-- There is also a Version for users that use 1.8 (Download for 1.8)
-### Currently there are only some features implemented. More will be implemented soon.
+- There is also a Version for users that use 1.8.8 or 1.21.1
 
 # Features
 
@@ -24,7 +22,7 @@ Here you can find the current supported features including syntax
 [![SkriptHubViewTheDocs](http://skripthub.net/static/addon/ViewTheDocsButton.png)](http://skripthub.net/docs/?addon=LabySK)
 
 
-[You can also see how the features will look ingame when you click on this message](https://github.com/pqtriick/LabySK/blob/master/preview.md)
+[You can also see how some of the features will look ingame when you click on this message](https://github.com/pqtriick/LabySK/blob/master/preview.md)
 
 # Bugs
 
