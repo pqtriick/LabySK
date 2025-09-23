@@ -3,7 +3,6 @@ package de.pqtriick.labysk.laby.laby4.player;
 import net.labymod.serverapi.integration.voicechat.VoiceChatPlayer;
 import net.labymod.serverapi.integration.voicechat.model.VoiceChatMute;
 import net.labymod.serverapi.server.bukkit.LabyModPlayer;
-import net.labymod.serverapi.server.bukkit.LabyModProtocolService;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -31,5 +30,10 @@ public class LabyVoice {
         voiceplayer.unmute();
         mutedPlayers.remove(player);
         muteReason.remove(player);
+    }
+
+    public static void openChannels(LabyModPlayer player) {
+        VoiceChatPlayer voiceChatPlayer = player.getIntegrationPlayer(VoiceChatPlayer.class);
+        voiceChatPlayer.openVoiceChatChannels();
     }
 }
