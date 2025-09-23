@@ -32,4 +32,9 @@ public class LabyVoice {
         mutedPlayers.remove(player);
         muteReason.remove(player);
     }
+
+    public static void openChannels(LabyModPlayer player) {
+        VoiceChatPlayer voiceChatPlayer = player.getIntegrationPlayer(VoiceChatPlayer.class);
+        voiceChatPlayer.openVoiceChatChannels();
+    }
 }
